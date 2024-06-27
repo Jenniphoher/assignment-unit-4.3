@@ -16,22 +16,21 @@ function addItem(array) {
     return true;
 }; //takes all strings that was split, put them into one string and into an array
 
-let newWord = addItem(itemArray);
 console.log(`Basket is ${basket}`);
-console.log(`The items have been added: ${newWord}`);
+console.log(`The items have been added: ${addItem}`);
 
 
 
 console.log('------ changing basket[] to itemArray ------');
-function newArray(array) {
+function ItemArray(array) {
     array.shift();
     for(word of itemArray) {
         array.push(word);
     } return array;
 }; //splitting the items as it was initially in itemArray
 
-let newBasket = newArray(basket);
-console.log(`The new list is ${newBasket}`);
+let ItemBasket = ItemArray(basket);
+console.log(`The Item list is ${ItemBasket}`);
 console.log('------ basket[] is changed ------');
 
 
@@ -74,7 +73,7 @@ console.log('------ STRETCH GOALS ------');
 const maxItems = 5; 
     
 function isFull() {
-    if(basket.length <= maxItems) {
+    if(basket.length < maxItems) {
         return answer = false;
     } else {
         return answer = true;
@@ -82,7 +81,6 @@ function isFull() {
 };
 
 isFull();
-//console.log(alreadyFull, basket);
 
 console.log('------ CHANGE ADDITEM FUNCTION ------');
 
@@ -100,23 +98,35 @@ function addItem(item) {
     }
 };
 
-console.log(`Item was added: ${addNew('mirror')} inside: ${basket}`);
-console.log(`Item was added: ${addNew('toilet')}`);
-console.log(`Item was added: ${addNew('toothpaste')}`);
-console.log(`Item was added: ${addNew('brush')} inside: ${basket}`);
-console.log(`Item was added: ${addNew('towel')}`);
-console.log(`Item was added: ${addNew('showerhead')}`);
-console.log(`Item was added: ${addNew('shampoo')} inside: ${basket}`);
+console.log(`Item was added: ${addItem('mirror')} inside: ${basket}`);
+console.log(`Item was added: ${addItem('toilet')}`);
+console.log(`Item was added: ${addItem('toothpaste')}`);
+console.log(`Item was added: ${addItem('brush')} inside: ${basket}`);
+console.log(`Item was added: ${addItem('towel')}`);
+console.log(`Item was added: ${addItem('showerhead')}`);
+console.log(`Item was added: ${addItem('shampoo')} inside: ${basket}`);
 console.log(basket);
 
-/* function removeItem(item) {
-    basket.indexOf(item);
-    if() {
+console.log('------ REMOVEITEM FUNCTION ------');
 
-    } else {
-        return null;
-    }
-} */
+
+console.log(basket);
+function removeItem(item) {
+    let x = basket.indexOf(item);
+    for(i=0; i<basket.length; i++) {
+        if(x === i) {
+            let word = basket.splice(i, 1);
+            return word[word.indexOf(item)];
+        } 
+    } console.log(`${item} not found.`);
+    return null;
+}
+
+console.log(removeItem('towel'));
+console.log(removeItem('hairclip'));
+console.log(basket);
+
+console.log('------ END ------');
 
 // DO NOT MODIFY
 // Used for automated testing
